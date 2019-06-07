@@ -8,19 +8,21 @@ Download or clone this project.
 
 ### Prerequisites
 
-You need ZipArchive installed.
-Write permission on plugin destination folder
-
 ```
-Give examples
+You need ZipArchive installed.
+
+Write permission on plugin destination folder
 ```
 
 ### Installing
 
+```
 After clone/download it open the terminal and go to the project folder.
-Type "./WPG Plugin:Generator" and run(Maybe you will need to give a "execute mode permission" to the file before run, "chmod +x WPG").
-You will be asked some questions about your new plugin, answer and press enter for each one.
 
+Type "./WPG Plugin:Generator" and run(Maybe you will need to give a "execute mode permission" to the file before run, "chmod +x WPG").
+
+You will be asked some questions about your new plugin, answer and press enter for each one.
+```
 ## Built With
 
 * [Symfony](https://symfony.com/) - Framework
@@ -30,7 +32,7 @@ You will be asked some questions about your new plugin, answer and press enter f
 
 ## Authors
 
-* **Cleber Mendes* - *Initial work* - (https://github.com/clebermind)
+**Cleber Mendes* - *Initial work* - (https://github.com/clebermind)
 
 ## License
 
