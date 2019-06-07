@@ -223,7 +223,7 @@ class WordpressPluginGenerator extends Command
             }
             
             if($fileSize > $this->fileSizeLimit) {
-                if(!$this->io->confirm("This file size({$fileSize}kb) is bigger than the limit({$this->fileSizeLimit}). Would you like to continue with this file?", true)) {
+                if(!$this->io->confirm("This file size({$fileSize}kb) is bigger than the limit({$this->fileSizeLimit}kb). Would you like to continue with this file?", true)) {
                     return;
                 }
             }
@@ -252,80 +252,5 @@ class WordpressPluginGenerator extends Command
             $this->io->warning('Not possible to set up, verify this file if you have any problem with the plugin.');
         }
     }
-
-    private function generate2()
-    {
-        // return $this->io->note("<info>name: {$this->name} - slug: {$this->slug}.</info>");
-    
-    // agora é pegar e gerar este caralho!
-    
-    $scanned_directory = array_diff(scandir($this->directory), array('..', '.'));
-    print_r($scanned_directory);
-    
-    exit();
-    
-    
-          $this->output->writeln("<info>Genereted.</info>");
-            $io = new SymfonyStyle($this->input, $this->output);
-          $io->newLine();
-          $io->note('Lorem ipsum dolor sit amet note');
-          $io->caution('Lorem ipsum dolor sit amet caution ');
-          /*$io->progressStart(10);
-          sleep(2);
-          $io->progressStart(20);
-          sleep(2);
-          $io->progressStart(30);
-          sleep(2);
-          $io->progressStart(40);
-          sleep(2);
-          $io->progressStart(50);
-          sleep(2);
-          $io->progressStart(60);
-          sleep(2);
-          $io->progressStart(70);
-          sleep(2);
-          $io->progressStart(80);
-          sleep(2);
-          $io->progressStart(90);
-          sleep(2);
-          $io->progressAdvance();
-          sleep(1);
-          $io->progressAdvance();
-          sleep(1);
-          $io->progressAdvance();
-          sleep(1);
-          $io->progressAdvance();
-          sleep(1);
-          $io->progressStart(100);
-          sleep(2);
-          $io->progressFinish();*/
-          
-          $io->ask('Number of workers to start', 1, function ($number) {
-                if (!is_numeric($number)) {
-                    throw new \RuntimeException('You must type a number.');
-                }
-            
-                $this->output->writeln("The number is $number");
-            });
-          
-          $io->askHidden('What is your password?', function ($password) {
-                if (empty($password)) {
-                    throw new \RuntimeException('Password cannot be empty.');
-                }
-            
-                 $this->output->writeln("The pw is $password");
-            });
-          
-          $aaa = $io->confirm('Restart the web server?', true);
-          $this->output->writeln("The aaa is $aaa");
-          
-          $io->success('Lorem ipsum dolor sit amet success');
-          
-          $io->warning('Lorem ipsum dolor sit amet warning');
-          
-          $io->error('Lorem ipsum dolor sit amet error');
-
-           return $this->output->writeln("<info>aaaa.</info>");
-    }
-    
+ 
 }
