@@ -10,8 +10,9 @@ The Wordpress Plugin Generator lets you generate a MVC base files for a new Word
 
 **Minimum Requirements**
 
-* PHP version 5.6 or greater
+* PHP version 7.4 or greater (Runs smoothly with PHP 8)
 * ZipArchive
+* Bower
 
 ### Installation
 
@@ -47,10 +48,56 @@ chmod +x WPG
 
 4. Enjoy your new Wordpress base files Plugin! =)
 
+## MVC Structure
+
+```
+.
+├── plugin-name.php (Main file of the plugin)
+├── index.php (Silence is good)
+├── composer.lock
+├── composer.json
+├── LICENSE
+├── .bowerrc
+├── src (MVC structure)
+│   │── Model
+│   │   ├── Service
+│   │   │   └── Settings.php
+│   │   ├── Mapper
+│   │   │   └── Settings.php
+│   │   └── Entity
+│   │       └── Settings.php
+│   │── View
+│   │   ├── index.tpl
+│   │   └── Admin
+│   │       └── index.tpl
+│   └── Controller
+│       ├── Controller.php (Main Controller)
+│       ├── index.php
+│       └── Admin
+│           └── Index.php
+├── assets (js, css, images...)
+│   ├── js
+│   |   └── script.js
+│   ├── css
+│   |   └── style.css
+│   └── admin
+│       ├── js
+│       │   └── script.js
+│       ├── css
+│       │   └── style.css
+│       └── components 
+│           └── ... (Bower Components)
+├── app
+│   ├── AppKernel.php
+│   └── Templating.php
+└── vendor 
+    └── ... (Composer Libraries)
+```
+
 ## Frequently Asked Questions
 
 ### How it works?
-After you input your information it creates a new folder on the inputted directory so unzip the "lib/wordpress-plugin-base.zip" file which contains all base plugin files there. So, scan every file inside the new plugin folder and make replacements by defined tags per inputted information. Finally, download and run composer to install dependence packages and delete the composer.phar.
+After you input your information it creates a new folder on the inputted directory so unzip the "lib/wordpress-plugin-base.zip" file which contains all base plugin files there. So, scan every file inside the new plugin folder and make replacements by defined tags per inputted information. Finally, runs Composer(Download it if necessary) to install backend dependence packages (now delete composer.phar if downloaded) and so runs so Bower to install frontend dependence packages.
 
 ### "This file extension is different of the validated extension. Would you like to continue with this file?" What it means?
 There's some default file extensions to have tags replaced by the entered information. This message means the file extension you can see above is not in a default range of these extension so you can choose to make replacement tags on this file or not.
@@ -68,12 +115,12 @@ For sure! Open the file *WordpressPluginGenerator.php* and change the limit to t
 This is a security check to make sure everything goes right with the replacements and do not try to replace on a huge file if it doesn't need.
 
 ### I am not able to run, I am getting erros.
-Make sure you have write permission on the plugin destination folder, you have ZipArchive installed, you are running PHP 5.6 or greater, the WPG file has "execute mode permission" and you have successfully run composer install.
+Make sure you have write permission on the plugin destination folder, you have ZipArchive and Bower installed, you are running PHP 7.4 or greater, the WPG file has "execute mode permission" and you have successfully run composer install.
 If all of that is done and you are still having any problem, send me an email and I will try to help you!
 
 ### Can I change the Wordpress Base Plugin Files?
 Yes you can! All you need is take your base files, replace variable content with "{{tags}}", zip that and replace the file *lib/wordpress-plugin-base.zip* by your new zip.
-To see the {{tags}} it has open the file *WordpressPluginGenerator.php* and take a lok at the method *makeReplacements()*
+To see the {{tags}} it has open the file *WordpressPluginGenerator.php* and take a lok at the attribute *$this->replaceTags*
 
 ## Built With
 

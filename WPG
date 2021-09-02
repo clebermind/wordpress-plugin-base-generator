@@ -4,8 +4,12 @@
 require_once __DIR__ . '/lib/vendor/autoload.php';
 require_once __DIR__ . '/WordpressPluginGenerator.php';
 
-use Symfony\Component\Console\Application; 
+use Symfony\Component\Console\Application;
 
 $app = new Application();
 $app->add(new WordpressPluginGenerator());
-$app->run();
+try {
+    $app->run();
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
