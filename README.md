@@ -24,7 +24,7 @@ The Wordpress Plugin Generator lets you generate a MVC base files for a new Word
 ```
 composer install
 ```
-*or download it from and run*
+*or [download it](https://getcomposer.org/download/) and run*
 ```
 php composer.phar install
 ```
@@ -48,7 +48,7 @@ chmod +x WPG
 
 4. Enjoy your new Wordpress base files Plugin! =)
 
-## MVC Structure
+## Plugin Structure
 
 ```
 .
@@ -97,19 +97,19 @@ chmod +x WPG
 ## Frequently Asked Questions
 
 ### How it works?
-After you input your information it creates a new folder on the inputted directory so unzip the "lib/wordpress-plugin-base.zip" file which contains all base plugin files there. So, scan every file inside the new plugin folder and make replacements by defined tags per inputted information. Finally, runs Composer(Download it if necessary) to install backend dependence packages (now delete composer.phar if downloaded) and so runs so Bower to install frontend dependence packages.
+After you input your information it creates a new folder on the inputted directory so unzip the "lib/wordpress-plugin-base.zip" file which contains all base plugin files there. So, scan every file inside the new plugin folder and make replacements by defined tags per inputted information. Finally, runs Composer(Download it if necessary) to install backend dependence packages (now delete composer.phar if downloaded) and so runs Bower to install frontend dependence packages.
 
 ### "This file extension is different of the validated extension. Would you like to continue with this file?" What it means?
 There's some default file extensions to have tags replaced by the entered information. This message means the file extension you can see above is not in a default range of these extension so you can choose to make replacement tags on this file or not.
 
 ### Can I change the default extensions?
-For sure! Open the file *WordpressPluginGenerator.php* and include the extension you want on *private $validExtensions = ['php', 'json', 'tpl', 'css', 'js'];*.
+For sure! Open the file *WordpressPluginGenerator.php* and include the extension you want on *private const VALID_EXTENSIONS = ['php', 'json', 'tpl', 'css', 'js', 'html', 'txt', 'md'];*. Also, there is the const *IGNORED_EXTENSIONS* which skip that kind of files.
 
 ### "This file size(XXXkb) is bigger than the limit(XXXkb). Would you like to continue with this file?" What it means?
 There's a default limit size. When a file is bigger than this default size you can choose to make replacement tags on this file or not.
 
 ### Can I change the default limit file size?
-For sure! Open the file *WordpressPluginGenerator.php* and change the limit to the number you want *private $fileSizeLimit = 1024; //kb*. Just keep in mind, this number is in KB!
+For sure! Open the file *WordpressPluginGenerator.php* and change the limit to the number you want *private const FILE_LIMIT_SIZE = 1024;*. Just keep in mind, this number is in KB!
 
 ### Why am I asked about limit file size and/or different file validated extension?
 This is a security check to make sure everything goes right with the replacements and do not try to replace on a huge file if it doesn't need.
@@ -140,4 +140,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 * PHP
 * Composer
+* Bower
 * Wordpress
